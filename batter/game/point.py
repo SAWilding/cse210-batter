@@ -1,3 +1,5 @@
+from game import constants
+
 class Point:
     """Represents distance from an origin (0, 0).
 
@@ -98,3 +100,23 @@ class Point:
         Returns True if both the x and y coordinate are 0.
         """
         return self._x == 0 and self._y == 0
+
+    def is_off_screen_x(self):
+        if (self._x >= constants.MAX_X - constants.BALL_WIDTH) or (self._x <= 0):
+            return True
+        else:
+            return False
+
+    def is_off_screen_top(self):
+        if (self._y <= 0):
+            return True
+        else:
+            return False
+    
+    def is_off_screen_bottom(self):
+        if (self._y >= constants.MAX_Y):
+            return True
+        else:
+            return False
+
+
